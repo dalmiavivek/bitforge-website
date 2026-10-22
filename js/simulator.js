@@ -18,7 +18,6 @@
   let userBalances = {
     USDT: 485.50,
     SOL: 2.45,
-    BNB: 0.65,
     ETH: 0.125,
     BTC: 0.015,
     LTC: 3.20
@@ -32,7 +31,6 @@
       fields: [
         { name: 'Tether (Polygon)', value: `\`${userBalances.USDT.toFixed(2)} USDT\` ($${userBalances.USDT.toFixed(2)})` },
         { name: 'Solana (SPL)', value: `\`${userBalances.SOL.toFixed(3)} SOL\` (~$465.50)` },
-        { name: 'BNB (Smart Chain)', value: `\`${userBalances.BNB.toFixed(3)} BNB\` (~$390.00)` },
         { name: 'Ethereum (ERC-20)', value: `\`${userBalances.ETH.toFixed(4)} ETH\` (~$412.50)` },
         { name: 'Bitcoin (Native)', value: `\`${userBalances.BTC.toFixed(4)} BTC\` (~$1,020.00)` },
         { name: 'Litecoin (LTC)', value: `\`${userBalances.LTC.toFixed(2)} LTC\` (~$240.00)` }
@@ -71,7 +69,6 @@
       const mockAddresses = {
         USDT: '0x71C...38A94 (Polygon PoS)',
         SOL: '9WzDXw...B5XyK (Solana SPL)',
-        BNB: '0x71C...38A94 (BNB Chain)',
         ETH: '0x71C...38A94 (Ethereum)',
         BTC: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh (BTC SegWit)',
         LTC: 'LTC_LhU9eZ4uXk3a98m7QxP2bV5n8Z1k2L4p (LTC P2PKH)'
@@ -140,7 +137,7 @@
         { name: 'Daemon Status', value: '`100% OPERATIONAL`' },
         { name: '45s Deposit Poller', value: '`ACTIVE (Every 45s)`' },
         { name: 'Vault Encryption', value: '`Fernet AES-256 (CBC)`' },
-        { name: 'Supported Chains', value: '`6 Multi-Chain Rails`' },
+        { name: 'Supported Chains', value: '`5 Multi-Chain Rails`' },
         { name: 'Tip Gas Cost', value: '`$0.00 (Zero Gas)`' },
         { name: 'Zero-Loss Engine', value: '`ENFORCED`' }
       ],

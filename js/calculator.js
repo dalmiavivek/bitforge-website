@@ -17,7 +17,7 @@
   if (!tipsSlider || !amountSlider) return;
 
   // Average gas cost per on-chain transfer across typical weighted mix:
-  // EVM / USDT Polygon ($0.03), Solana ($0.005), BSC ($0.15), ETH ($2.50)
+  // EVM / USDT Polygon ($0.03), Solana ($0.005), ETH ($2.50)
   // Blended average on-chain fee for micro-transfers: ~$0.45
   const BLENDED_ONCHAIN_GAS_USD = 0.45;
 

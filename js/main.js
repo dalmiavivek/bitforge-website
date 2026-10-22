@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ═══════════════════════════════════════════
   async function fetchLiveCryptoPrices() {
     try {
-      const url = 'https://api.coingecko.com/api/v3/simple/price?ids=tether,solana,binancecoin,ethereum,bitcoin,litecoin&vs_currencies=usd&include_24hr_change=true';
+      const url = 'https://api.coingecko.com/api/v3/simple/price?ids=tether,solana,ethereum,bitcoin,litecoin&vs_currencies=usd&include_24hr_change=true';
       const res = await fetch(url);
       if (!res.ok) throw new Error('CoinGecko rate limited or unavailable');
       const data = await res.json();
@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.tether) updateCard('usdt', data.tether.usd, data.tether.usd_24h_change);
       if (data.solana) updateCard('sol', data.solana.usd, data.solana.usd_24h_change);
-      if (data.binancecoin) updateCard('bnb', data.binancecoin.usd, data.binancecoin.usd_24h_change);
       if (data.ethereum) updateCard('eth', data.ethereum.usd, data.ethereum.usd_24h_change);
       if (data.bitcoin) updateCard('btc', data.bitcoin.usd, data.bitcoin.usd_24h_change);
       if (data.litecoin) updateCard('ltc', data.litecoin.usd, data.litecoin.usd_24h_change);
