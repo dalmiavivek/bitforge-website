@@ -230,9 +230,11 @@
     let buttonsHtml = '';
     if (data.buttons && data.buttons.length) {
       buttonsHtml = `<div class="discord-button-row">
-        ${data.buttons.map((b, i) => `
-          <button class="discord-btn ${i === 0 ? 'success' : ''}" onclick="window.cyberAudio && window.cyberAudio.playClick()">${b}</button>
-        `).join('')}
+        ${data.buttons.map((b, i) => {
+          const isInvite = (b === 'Join Discord' || b === 'Add BitForge');
+          const action = isInvite ? `window.open('https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands', '_blank');` : '';
+          return `<button class="discord-btn ${i === 0 ? 'success' : ''}" onclick="window.cyberAudio && window.cyberAudio.playClick(); ${action}">${b}</button>`;
+        }).join('')}
       </div>`;
     }
 
