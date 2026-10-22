@@ -135,17 +135,17 @@
     stats: () => ({
       title: 'BitForge Network Global Telemetry',
       color: '#00e676',
-      description: 'Real-time telemetry and operational heartbeat across all connected servers.',
+      description: 'Real-time operational status and architectural configuration.',
       fields: [
-        { name: 'Active Discord Servers', value: '`1,420 Guilds`' },
-        { name: 'Custodial Vault Wallets', value: '`28,540 Wallets`' },
-        { name: '24h Tips Executed', value: '`$148,920 USD`' },
-        { name: 'Average Off-Chain Ping', value: '`38ms`' },
-        { name: '45s Deposit Poller', value: '`100% OPERATIONAL`' },
-        { name: 'Supported Chains', value: '`6 Multi-Chain Rails`' }
+        { name: 'Daemon Status', value: '`100% OPERATIONAL`' },
+        { name: '45s Deposit Poller', value: '`ACTIVE (Every 45s)`' },
+        { name: 'Vault Encryption', value: '`Fernet AES-256 (CBC)`' },
+        { name: 'Supported Chains', value: '`6 Multi-Chain Rails`' },
+        { name: 'Tip Gas Cost', value: '`$0.00 (Zero Gas)`' },
+        { name: 'Zero-Loss Engine', value: '`ENFORCED`' }
       ],
-      footer: 'BitForge Telemetry • Uptime 99.98%',
-      buttons: ['Join Discord', 'Documentation']
+      footer: 'BitForge Telemetry • Verified System Architecture',
+      buttons: ['Add BitForge', 'Documentation']
     })
   };
 
