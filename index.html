@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>BitForge — Multi-Chain Discord Crypto Vault & Social Tip Engine</title>
+  
+  <meta name="description" content="BitForge is a high-speed multi-chain Discord crypto custodial wallet and social tipping bot. Real-time deposits, instant zero-gas tipping, auto-sweeps, and AES-256 vault security for USDT, SOL, BNB, ETH, BTC, and LTC." />
+  <meta name="keywords" content="BitForge, Discord crypto bot, crypto wallet bot, multi-chain Discord bot, crypto tip bot, zero-gas crypto tips, Solana Discord bot, Polygon USDT bot, Bitcoin Discord bot" />
+  <meta name="theme-color" content="#00e676" />
+  
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  
+  <!-- Web3 Sci-Fi Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Three.js for 3D Cyber Vault Scene -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-prog"></div>
+
+  <!-- Custom GPU Cyber Cursor -->
+  <div class="cur-d" id="cur-d"></div>
+  <div class="cur-r" id="cur-r"></div>
+
+  <!-- Cybernetic Preloader -->
+  <div id="preloader">
+    <div class="pre-logo-wrap">
+      <img src="assets/img/logo.png" alt="BitForge Logo" class="pre-logo-img" />
+      <span class="pre-logo-text">BITFORGE</span>
+    </div>
+    <div class="pre-bar-wrap">
+      <div class="pre-bar" id="pre-bar"></div>
+    </div>
+    <div class="pre-txt" id="pre-txt">INITIALIZING SECURE CUSTODIAL ENGINE...</div>
+  </div>
+
+  <!-- Three.js 3D Background Canvas -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- CRT Retro Scanline Overlay (Toggleable) -->
+  <div class="crt-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Infinite Scrolling Live Ticker Marquee -->
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <!-- Loop Item 1 -->
+        <div class="ticker-item">
+          <span class="ticker-sym">USDT (POLYGON)</span>
+          <span class="ticker-price" id="price-usdt">$1.00</span>
+          <span class="ticker-up" id="change-usdt">● 0.00%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">SOL</span>
+          <span class="ticker-price" id="price-sol">$188.40</span>
+          <span class="ticker-up" id="change-sol">▲ +4.20%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">BNB</span>
+          <span class="ticker-price" id="price-bnb">$598.15</span>
+          <span class="ticker-up" id="change-bnb">▲ +1.85%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">ETH</span>
+          <span class="ticker-price" id="price-eth">$3,280.50</span>
+          <span class="ticker-up" id="change-eth">▲ +2.60%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">BTC</span>
+          <span class="ticker-price" id="price-btc">$68,450.00</span>
+          <span class="ticker-up" id="change-btc">▲ +3.10%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">LTC</span>
+          <span class="ticker-price" id="price-ltc">$74.80</span>
+          <span class="ticker-up" id="change-ltc">▲ +0.95%</span>
+        </div>
+
+        <!-- Loop Item 2 (Seamless Infinite Duplicate) -->
+        <div class="ticker-item">
+          <span class="ticker-sym">USDT (POLYGON)</span>
+          <span class="ticker-price">$1.00</span>
+          <span class="ticker-up">● 0.00%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">SOL</span>
+          <span class="ticker-price">$188.40</span>
+          <span class="ticker-up">▲ +4.20%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">BNB</span>
+          <span class="ticker-price">$598.15</span>
+          <span class="ticker-up">▲ +1.85%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">ETH</span>
+          <span class="ticker-price">$3,280.50</span>
+          <span class="ticker-up">▲ +2.60%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">BTC</span>
+          <span class="ticker-price">$68,450.00</span>
+          <span class="ticker-up">▲ +3.10%</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-sym">LTC</span>
+          <span class="ticker-price">$74.80</span>
+          <span class="ticker-up">▲ +0.95%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand-wrapper">
+          <img src="assets/img/logo.png" alt="BitForge Logo" class="brand-logo-img" />
+          <span class="brand-name">BIT<span>FORGE</span></span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#simulator" class="nav-link active">Live Simulator</a></li>
+          <li><a href="#chains" class="nav-link">Supported Rails</a></li>
+          <li><a href="#calculator" class="nav-link">Gas Calculator</a></li>
+          <li><a href="#commands" class="nav-link">Commands</a></li>
+          <li><a href="#architecture" class="nav-link">Security Specs</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="terms.html" class="nav-link">ToS</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Web Audio Sci-Fi Synthesizer Toggle -->
+          <button id="audio-toggle-btn" class="hud-tool-btn" title="Toggle Sci-Fi Synth Audio">
+            <span class="audio-icon">🔇</span>
+          </button>
+          
+          <!-- CRT Scanlines Toggle -->
+          <button id="crt-toggle-btn" class="hud-tool-btn" title="Toggle CRT Retro HUD">
+            <span>📺</span>
+          </button>
+
+          <!-- Add to Discord CTA -->
+          <a href="https://discord.com" target="_blank" class="btn btn-primary btn-sm">
+            <span>Add BitForge</span>
+            <span class="font-mono">→</span>
+          </a>
+
+          <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" id="simulator">
+        <div class="container">
+          <div class="hero-grid">
+            <!-- Left Hero Column -->
+            <div class="hero-content">
+              <div class="cyber-badge">
+                <span class="pulse-dot"></span>
+                <span>DISCORD-NATIVE MULTI-CHAIN CUSTODIAL ENGINE</span>
+              </div>
+
+              <h1 class="hero-title font-orbitron">
+                THE DISCORD <br />
+                <span class="text-gradient-green">CRYPTO FORGE</span> <br />
+                RELOADED.
+              </h1>
+
+              <p class="hero-subtitle">
+                Turn your Discord community into a high-voltage financial station. Instant zero-gas tips, permanent cryptographic addresses, 45-second on-chain sweep detection, and bank-grade AES-256 custodial vaults across <strong>6 major blockchains</strong>.
+              </p>
+
+              <div class="hero-cta-group">
+                <a href="https://discord.com" target="_blank" class="btn btn-primary">
+                  <span>Add BitForge to Server</span>
+                  <span>⚡</span>
+                </a>
+                <a href="#commands" class="btn btn-glass">
+                  <span>Explore Commands</span>
+                  <span class="font-mono">($ /)</span>
+                </a>
+              </div>
+
+              <!-- Floating Micro Highlights -->
+              <div class="hero-stats-row">
+                <div class="stat-item">
+                  <span class="stat-value accent">6 Rails</span>
+                  <span class="stat-label">Multi-Chain Engine</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">45s</span>
+                  <span class="stat-label">RPC Sweep Cycle</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value accent">$0.00</span>
+                  <span class="stat-label">Tip Gas Fees</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">AES-256</span>
+                  <span class="stat-label">Vault Encryption</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Hero Column: Interactive Discord Simulator Playground -->
+            <div class="discord-simulator-container glass-panel glow-green">
+              <!-- Simulator Header -->
+              <div class="discord-header">
+                <div class="discord-channel-info">
+                  <span class="channel-hash">#</span>
+                  <span class="channel-name">crypto-vault-ops</span>
+                  <span class="channel-topic">BitForge interactive terminal</span>
+                </div>
+                <div class="discord-status-pill">
+                  <span class="pulse-dot"></span>
+                  <span>BitForge Online</span>
+                </div>
+              </div>
+
+              <!-- Interactive Command Preset Chips -->
+              <div class="simulator-preset-bar">
+                <span class="preset-label">Commands:</span>
+                <button class="preset-chip active" data-cmd="/balance">/balance</button>
+                <button class="preset-chip" data-cmd="/tip @alex 25 USDT">/tip @alex 25 USDT</button>
+                <button class="preset-chip" data-cmd="/deposit SOL">/deposit SOL</button>
+                <button class="preset-chip" data-cmd="/withdraw 0.5 LTC">/withdraw LTC</button>
+                <button class="preset-chip" data-cmd="/rain 100 USDT 5">/rain 100 USDT</button>
+                <button class="preset-chip" data-cmd="/stats">/stats</button>
+              </div>
+
+              <!-- Simulator Message Thread -->
+              <div class="discord-messages-body" id="discord-messages-container">
+                <div class="discord-message">
+                  <img src="assets/img/green-avatar.png" class="discord-avatar" alt="BitForge" />
+                  <div class="discord-message-content">
+                    <div class="discord-meta">
+                      <span class="discord-author" style="color:var(--neon-green)">BitForge</span>
+                      <span class="discord-bot-tag forge" style="background:var(--neon-green); color:#05140b;">BOT</span>
+                      <span class="discord-timestamp">Today at 12:00 PM</span>
+                    </div>
+                    <div class="discord-embed">
+                      <div class="embed-author">
+                        <img src="assets/img/green-avatar.png" class="embed-author-icon" alt="BitForge" />
+                        <span>BitForge Custodial Engine</span>
+                      </div>
+                      <div class="embed-title">Welcome to the BitForge Playground!</div>
+                      <div class="embed-description">
+                        BitForge powers instant social tips and secure multi-chain custodial vaults. Click the preset command buttons above or type in the bar below to test live operations!
+                      </div>
+                      <div class="embed-fields-grid">
+                        <div class="embed-field">
+                          <span class="field-name">Status</span>
+                          <span class="field-value">`100% OPERATIONAL`</span>
+                        </div>
+                        <div class="embed-field">
+                          <span class="field-name">Dual Invocation</span>
+                          <span class="field-value">`Slash (/) & Prefix ($)`</span>
+                        </div>
+                      </div>
+                      <div class="embed-footer">
+                        <span>Click /balance above to inspect multi-chain balances</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simulator Chat Input Bar -->
+              <div class="discord-input-container">
+                <div class="discord-input-box">
+                  <input type="text" id="discord-chat-input" placeholder="Type a command like $balance or /tip @sam 10 SOL..." autocomplete="off" />
+                  <button id="discord-send-btn" class="discord-send-btn">SEND</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Telemetry Stats Band (Kinetic Counters) -->
+      <section class="stats-band" id="telemetry-stats" style="padding: 40px 0; background: rgba(8, 12, 18, 0.75); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+            <div>
+              <div class="font-orbitron" style="font-size: 38px; font-weight: 800; color: var(--neon-green);" data-target="1420" data-suffix="+">1,420+</div>
+              <div style="font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px;">Connected Guilds</div>
+            </div>
+            <div>
+              <div class="font-orbitron" style="font-size: 38px; font-weight: 800; color: #ffffff;" data-target="28540" data-suffix="+">28,540+</div>
+              <div style="font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px;">Custodial Vault Wallets</div>
+            </div>
+            <div>
+              <div class="font-orbitron" style="font-size: 38px; font-weight: 800; color: var(--neon-green);" data-target="148920" data-prefix="$" data-suffix="">$148,920</div>
+              <div style="font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px;">24h Off-Chain Volume</div>
+            </div>
+            <div>
+              <div class="font-orbitron" style="font-size: 38px; font-weight: 800; color: #ffffff;" data-target="42" data-suffix="ms">&lt; 42ms</div>
+              <div style="font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px;">Tip Settlement Latency</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multi-Chain Rail Station -->
+      <section class="chains-section" id="chains">
+        <div class="container">
+          <div class="section-header">
+            <div class="cyber-badge">
+              <span class="pulse-dot"></span>
+              <span>Supported Blockchains</span>
+            </div>
+            <h2 class="section-title">6 Native Multi-Chain Rails</h2>
+            <p class="section-desc">
+              From micro-tips on Solana to institutional settlement on Bitcoin, BitForge delivers unified keypair management across 6 leading blockchains.
+            </p>
+          </div>
+
+          <div class="chains-grid">
+            <!-- Tether USDT -->
+            <div class="chain-card">
+              <div class="chain-top">
+                <div class="chain-badge-group">
+                  <div class="chain-icon-wrap" style="color: #26a17b; background: rgba(38, 161, 123, 0.1);">₮</div>
+                  <div class="chain-names">
+                    <h3>Tether USD</h3>
+                    <span class="chain-ticker">USDT</span>
+                  </div>
+                </div>
+                <span class="chain-network-tag">Polygon PoS</span>
+              </div>
+              <div class="chain-metrics">
+                <div class="metric-cell">
+                  <span class="metric-name">Tip Fee</span>
+                  <span class="metric-val" style="color: var(--neon-green)">$0.00 (Zero)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-name">Auto-Sweep</span>
+                  <span class="metric-val">POL Sponsored</span>
+                </div>
+              </div>
+              <ul class="chain-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Automatic POL gas sponsorship for sweeping</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 6 Decimals ERC-20 contract standard</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Instant zero-gas Discord transfers</li>
+              </ul>
+            </div>
+
+            <!-- Solana SOL -->
+            <div class="chain-card">
+              <div class="chain-top">
+                <div class="chain-badge-group">
+                  <div class="chain-icon-wrap" style="color: #9945ff; background: rgba(153, 69, 255, 0.1);">◎</div>
+                  <div class="chain-names">
+                    <h3>Solana</h3>
+                    <span class="chain-ticker">SOL</span>
+                  </div>
+                </div>
+                <span class="chain-network-tag">Solana SPL</span>
+              </div>
+              <div class="chain-metrics">
+                <div class="metric-cell">
+                  <span class="metric-name">Tip Fee</span>
+                  <span class="metric-val" style="color: var(--neon-green)">$0.00 (Zero)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-name">Keypair</span>
+                  <span class="metric-val">Ed25519 Native</span>
+                </div>
+              </div>
+              <ul class="chain-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Raw 32-byte Base58 cryptographic derivation</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 9 Decimals precision for sub-cent tipping</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 45s on-chain poller sweep detection</li>
+              </ul>
+            </div>
+
+            <!-- BNB Chain -->
+            <div class="chain-card">
+              <div class="chain-top">
+                <div class="chain-badge-group">
+                  <div class="chain-icon-wrap" style="color: #f3ba2f; background: rgba(243, 186, 47, 0.1);">◈</div>
+                  <div class="chain-names">
+                    <h3>BNB Chain</h3>
+                    <span class="chain-ticker">BNB</span>
+                  </div>
+                </div>
+                <span class="chain-network-tag">BEP-20 / EVM</span>
+              </div>
+              <div class="chain-metrics">
+                <div class="metric-cell">
+                  <span class="metric-name">Tip Fee</span>
+                  <span class="metric-val" style="color: var(--neon-green)">$0.00 (Zero)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-name">Standard</span>
+                  <span class="metric-val">Native BSC</span>
+                </div>
+              </div>
+              <ul class="chain-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unified EVM keypair address scheme</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Ultra-fast 3s block confirmation time</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Automatic admin sweep forwarding</li>
+              </ul>
+            </div>
+
+            <!-- Ethereum ETH -->
+            <div class="chain-card">
+              <div class="chain-top">
+                <div class="chain-badge-group">
+                  <div class="chain-icon-wrap" style="color: #627eea; background: rgba(98, 126, 234, 0.1);">Ξ</div>
+                  <div class="chain-names">
+                    <h3>Ethereum</h3>
+                    <span class="chain-ticker">ETH</span>
+                  </div>
+                </div>
+                <span class="chain-network-tag">Ethereum L1</span>
+              </div>
+              <div class="chain-metrics">
+                <div class="metric-cell">
+                  <span class="metric-name">Tip Fee</span>
+                  <span class="metric-val" style="color: var(--neon-green)">$0.00 (Zero)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-name">Standard</span>
+                  <span class="metric-val">Native ERC-20</span>
+                </div>
+              </div>
+              <ul class="chain-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 18 Decimals precision for whale tips</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Ethereum L1 gas fees on social tips</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Secure custodial withdrawal verification</li>
+              </ul>
+            </div>
+
+            <!-- Bitcoin BTC -->
+            <div class="chain-card">
+              <div class="chain-top">
+                <div class="chain-badge-group">
+                  <div class="chain-icon-wrap" style="color: #f7931a; background: rgba(247, 147, 26, 0.1);">₿</div>
+                  <div class="chain-names">
+                    <h3>Bitcoin</h3>
+                    <span class="chain-ticker">BTC</span>
+                  </div>
+                </div>
+                <span class="chain-network-tag">BTC SegWit</span>
+              </div>
+              <div class="chain-metrics">
+                <div class="metric-cell">
+                  <span class="metric-name">Tip Fee</span>
+                  <span class="metric-val" style="color: var(--neon-green)">$0.00 (Zero)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-name">Derivation</span>
+                  <span class="metric-val">SECP256K1 Pure</span>
+                </div>
+              </div>
+              <ul class="chain-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Pure SHA256 + RIPEMD160 + Base58Check</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Compatible with btcscan.org blockspace</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Off-chain Satoshi accounting</li>
+              </ul>
+            </div>
+
+            <!-- Litecoin LTC -->
+            <div class="chain-card">
+              <div class="chain-top">
+                <div class="chain-badge-group">
+                  <div class="chain-icon-wrap" style="color: #345d9d; background: rgba(52, 93, 157, 0.1);">Ł</div>
+                  <div class="chain-names">
+                    <h3>Litecoin</h3>
+                    <span class="chain-ticker">LTC</span>
+                  </div>
+                </div>
+                <span class="chain-network-tag">Litecoin Network</span>
+              </div>
+              <div class="chain-metrics">
+                <div class="metric-cell">
+                  <span class="metric-name">Tip Fee</span>
+                  <span class="metric-val" style="color: var(--neon-green)">$0.00 (Zero)</span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-name">Prefix Byte</span>
+                  <span class="metric-val">0x30 (L-address)</span>
+                </div>
+              </div>
+              <ul class="chain-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified against litecoinspace.org</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Low network dust withdrawal threshold</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High-speed community micro-transactions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Community Gas Savings Calculator -->
+      <section class="calculator-section" id="calculator">
+        <div class="container">
+          <div class="calc-box">
+            <!-- Left: Sliders -->
+            <div class="calc-controls">
+              <div class="cyber-badge">
+                <span class="pulse-dot"></span>
+                <span>Off-Chain Economics</span>
+              </div>
+              <h2 class="font-orbitron" style="font-size: 32px; margin: 16px 0 24px;">Community Gas Savings Calculator</h2>
+              <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 15px;">
+                On-chain peer-to-peer micro-tips are eaten up by miner gas. BitForge settles social tips instantly in SQLite WAL off-chain memory with zero gas fees.
+              </p>
+
+              <!-- Slider 1 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-label">Monthly Community Tips Sent</span>
+                  <span class="slider-value-display" id="tips-count-display">2,500 tips / mo</span>
+                </div>
+                <input type="range" min="100" max="20000" step="100" value="2500" class="cyber-range-slider" id="tips-slider" />
+              </div>
+
+              <!-- Slider 2 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-label">Average Tip Value</span>
+                  <span class="slider-value-display" id="tip-amount-display">$15.00</span>
+                </div>
+                <input type="range" min="1" max="100" step="1" value="15" class="cyber-range-slider" id="amount-slider" />
+              </div>
+            </div>
+
+            <!-- Right: Result Card -->
+            <div class="calc-result-panel">
+              <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--neon-green); letter-spacing: 0.1em;">Estimated On-Chain Gas Saved</span>
+              <div class="calc-savings-number font-orbitron" id="calc-total-savings">$1,125</div>
+              <div class="calc-savings-sub">kept in your members' pockets every month</div>
+
+              <div class="calc-breakdown-grid">
+                <div>
+                  <span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">Tip Settlement Speed</span>
+                  <div style="font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: #ffffff;" id="calc-tx-speed">&lt; 50ms</div>
+                </div>
+                <div>
+                  <span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">Zero-Loss Protection</span>
+                  <div style="font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--neon-green);">100% ACTIVE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Command Arsenal Matrix -->
+      <section class="commands-section" id="commands">
+        <div class="container">
+          <div class="section-header">
+            <div class="cyber-badge">
+              <span class="pulse-dot"></span>
+              <span>Command Directory</span>
+            </div>
+            <h2 class="section-title">The BitForge Command Arsenal</h2>
+            <p class="section-desc">
+              Full dual-invocation support: invoke seamlessly with slash commands (<code class="font-mono">/</code>) or standard prefix (<code class="font-mono">$</code>).
+            </p>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="command-toolbar">
+            <div class="command-tabs">
+              <button class="cmd-tab-btn active" data-cat="all">All Commands</button>
+              <button class="cmd-tab-btn" data-cat="vault">Custodial Vault</button>
+              <button class="cmd-tab-btn" data-cat="tipping">Social Tips</button>
+              <button class="cmd-tab-btn" data-cat="drops">Rain & Drops</button>
+              <button class="cmd-tab-btn" data-cat="admin">Admin & Sweeps</button>
+            </div>
+
+            <div class="cmd-search-box">
+              <span style="color: var(--neon-green);">🔍</span>
+              <input type="text" id="cmd-search-input" placeholder="Search commands by name, syntax..." />
+            </div>
+          </div>
+
+          <!-- Command Cards Grid -->
+          <div class="commands-grid">
+            <!-- /balance -->
+            <div class="cmd-card" data-cat="vault">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/balance &nbsp;[$balance]</span>
+                <span class="cmd-badge">Everyone</span>
+              </div>
+              <p class="cmd-desc">
+                Display your complete multi-chain portfolio overview across USDT, SOL, BNB, ETH, BTC, and LTC with interactive [Deposit], [Withdraw], and [Refresh] Discord buttons.
+              </p>
+              <div class="cmd-card-footer">
+                <span>Returns interactive embed + buttons</span>
+                <button class="copy-cmd-btn" data-copy="/balance">Copy /balance</button>
+              </div>
+            </div>
+
+            <!-- /deposit -->
+            <div class="cmd-card" data-cat="vault">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/deposit &lt;crypto&gt;</span>
+                <span class="cmd-badge">Private DM</span>
+              </div>
+              <p class="cmd-desc">
+                Generates a permanent cryptographic deposit address for the specified blockchain. Address and QR code arrive privately via DM. Scanned every 45s by background RPC daemon.
+              </p>
+              <div class="cmd-card-footer">
+                <span>Supported: USDT, SOL, BNB, ETH, BTC, LTC</span>
+                <button class="copy-cmd-btn" data-copy="/deposit SOL">Copy /deposit</button>
+              </div>
+            </div>
+
+            <!-- /tip -->
+            <div class="cmd-card" data-cat="tipping">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/tip &lt;@user&gt; &lt;amount&gt; [crypto]</span>
+                <span class="cmd-badge">Zero Gas</span>
+              </div>
+              <p class="cmd-desc">
+                Instantly transfer cryptocurrency to any member in your server with zero transaction fees. Settles in sub-50ms directly inside BitForge's off-chain SQLite ledger.
+              </p>
+              <div class="cmd-card-footer">
+                <span>Example: $tip @Alex 25 USDT</span>
+                <button class="copy-cmd-btn" data-copy="/tip @Alex 25 USDT">Copy /tip</button>
+              </div>
+            </div>
+
+            <!-- /withdraw -->
+            <div class="cmd-card" data-cat="vault">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/withdraw &lt;amount&gt; &lt;crypto&gt; &lt;address&gt;</span>
+                <span class="cmd-badge">On-Chain</span>
+              </div>
+              <p class="cmd-desc">
+                Broadcast an on-chain transfer to your external self-custody wallet. Backed by strict pre-flight balance checks and zero-loss protection—funds are never deducted on failure.
+              </p>
+              <div class="cmd-card-footer">
+                <span>Strict Pre-Flight Verification</span>
+                <button class="copy-cmd-btn" data-copy="/withdraw 0.5 LTC LhU9...">Copy /withdraw</button>
+              </div>
+            </div>
+
+            <!-- /rain -->
+            <div class="cmd-card" data-cat="drops">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/rain &lt;amount&gt; [crypto] [recipients]</span>
+                <span class="cmd-badge">Community</span>
+              </div>
+              <p class="cmd-desc">
+                Drop cryptocurrency rain over recently active chatters in your server. Divides the pool evenly and credits balances instantly with zero gas friction.
+              </p>
+              <div class="cmd-card-footer">
+                <span>Boosts server chat engagement</span>
+                <button class="copy-cmd-btn" data-copy="/rain 100 USDT 5">Copy /rain</button>
+              </div>
+            </div>
+
+            <!-- /history -->
+            <div class="cmd-card" data-cat="vault">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/history &nbsp;[$history]</span>
+                <span class="cmd-badge">Ledger</span>
+              </div>
+              <p class="cmd-desc">
+                Inspect your chronological deposit, tip, and withdrawal audit trail with timestamps, recipient handles, and public blockchain explorer transaction hashes.
+              </p>
+              <div class="cmd-card-footer">
+                <span>Paginated receipt history</span>
+                <button class="copy-cmd-btn" data-copy="/history">Copy /history</button>
+              </div>
+            </div>
+
+            <!-- /setfeeaddress -->
+            <div class="cmd-card" data-cat="admin">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/setfeeaddress &lt;crypto&gt; &lt;address&gt;</span>
+                <span class="cmd-badge" style="color: var(--neon-crimson)">Admin Exclusive</span>
+              </div>
+              <p class="cmd-desc">
+                Configure the master cold storage vault address where deposits are automatically swept. Protected by strict Master Admin ID authorization (ID: 1201968157464739920).
+              </p>
+              <div class="cmd-card-footer">
+                <span>Master Admin only</span>
+                <button class="copy-cmd-btn" data-copy="/setfeeaddress USDT 0x...">Copy /setfeeaddress</button>
+              </div>
+            </div>
+
+            <!-- /sweep -->
+            <div class="cmd-card" data-cat="admin">
+              <div class="cmd-card-header">
+                <span class="cmd-syntax-pill">/sweep &lt;crypto&gt; &nbsp;[$sweep]</span>
+                <span class="cmd-badge" style="color: var(--neon-crimson)">Admin Exclusive</span>
+              </div>
+              <p class="cmd-desc">
+                Manually trigger the auto-sweep engine across all user deposit addresses, aggregating funds into the configured fee vault with automated POL gas sponsorship on Polygon.
+              </p>
+              <div class="cmd-card-footer">
+                <span>On-demand vault aggregation</span>
+                <button class="copy-cmd-btn" data-copy="/sweep USDT">Copy /sweep</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cryptographic Architecture & Security -->
+      <section class="security-section" id="architecture">
+        <div class="container">
+          <div class="section-header">
+            <div class="cyber-badge">
+              <span class="pulse-dot"></span>
+              <span>Architecture Deep Dive</span>
+            </div>
+            <h2 class="section-title">Built with True Cryptography</h2>
+            <p class="section-desc">
+              No hash truncations, no pseudo-addresses. BitForge implements raw elliptic curve derivations and bank-grade authenticated encryption at rest.
+            </p>
+          </div>
+
+          <div class="pipeline-grid">
+            <div class="pipeline-card">
+              <span class="pipeline-step-badge">STEP 01</span>
+              <h3 class="pipeline-title">Raw Mathematical Key Derivation</h3>
+              <p class="pipeline-desc">
+                EVM addresses derived via <code class="font-mono">eth_account</code>. Solana via raw 32-byte Ed25519. BTC & LTC via pure SECP256K1 + SHA256 + RIPEMD160 + Base58Check with correct version bytes (<code class="font-mono">0x00</code> & <code class="font-mono">0x30</code>).
+              </p>
+            </div>
+
+            <div class="pipeline-card">
+              <span class="pipeline-step-badge">STEP 02</span>
+              <h3 class="pipeline-title">Authenticated Fernet AES-256</h3>
+              <p class="pipeline-desc">
+                All custodial private keys are encrypted at rest using AES-256 in CBC mode with HMAC SHA-256 authentication. Decrypted strictly into volatile server memory upon withdrawal broadcast.
+              </p>
+            </div>
+
+            <div class="pipeline-card">
+              <span class="pipeline-step-badge">STEP 03</span>
+              <h3 class="pipeline-title">45s RPC Poller Daemon</h3>
+              <p class="pipeline-desc">
+                Autonomous background daemon queries blockchain nodes every 45 seconds. Incoming deposits are flagged with unique idempotency keys in <code class="font-mono">processed_deposits</code> to prevent double credits.
+              </p>
+            </div>
+
+            <div class="pipeline-card">
+              <span class="pipeline-step-badge">STEP 04</span>
+              <h3 class="pipeline-title">Zero-Loss Protection Engine</h3>
+              <p class="pipeline-desc">
+                User off-chain balances are never deducted on RPC timeout or unconfirmed broadcast. If an on-chain transfer fails, your funds remain 100% intact with zero balance degradation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section" id="faq">
+        <div class="container">
+          <div class="section-header">
+            <div class="cyber-badge">
+              <span class="pulse-dot"></span>
+              <span>Knowledge Base</span>
+            </div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc">
+              Everything you need to know about BitForge's custodial model, security, and setup.
+            </p>
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-item active">
+              <button class="faq-question-btn">
+                <span>Are Discord tips completely free of blockchain gas fees?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Yes! When you tip another Discord member using <code class="font-mono">/tip</code> or <code class="font-mono">$tip</code>, the transfer is settled instantly inside BitForge's internal accounting ledger. No on-chain gas is spent, meaning you can send micro-tips as small as $0.05 without paying network fees.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question-btn">
+                <span>How are user private keys generated and secured?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                BitForge uses pure mathematical keypair generation (Ed25519 for Solana, SECP256K1 for Bitcoin/Litecoin, and eth_account for EVM). Every private key is encrypted at rest using industry-standard Fernet AES-256 before being stored in SQLite. Keys are never exposed in Discord channels or DMs.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question-btn">
+                <span>How fast are on-chain deposits detected and credited?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                BitForge runs an asynchronous poller daemon that checks public blockchain RPCs every 45 seconds. Once your incoming transaction achieves required network confirmations, your balance is credited instantly.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question-btn">
+                <span>What is the BitForge Zero-Loss Withdrawal Policy?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                We enforce strict pre-flight balance and network checks. Your off-chain balance is never deducted if a node is unreachable or if a broadcast fails. You only get debited once an on-chain transaction hash is successfully generated and verified.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question-btn">
+                <span>Can server administrators set a custom prefix or fee vault?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Yes! Server administrators can configure custom bot prefixes (default is <code class="font-mono">$</code>). Master bot administrators can configure master sweep vaults via <code class="font-mono">/setfeeaddress</code> for automated cold storage aggregation.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversion Banner -->
+      <section style="padding: 60px 0 100px;">
+        <div class="container">
+          <div class="glass-panel glow-green" style="padding: 60px 40px; text-align: center; border-color: rgba(0, 230, 118, 0.3); background: linear-gradient(135deg, rgba(7, 18, 12, 0.9) 0%, rgba(13, 24, 18, 0.95) 100%);">
+            <div class="cyber-badge" style="margin-bottom: 20px;">
+              <span class="pulse-dot"></span>
+              <span>Ready for Deployment</span>
+            </div>
+            <h2 class="font-orbitron" style="font-size: 38px; margin-bottom: 16px;">Power Your Discord Community With BitForge</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; font-size: 16px;">
+              Add BitForge in 30 seconds. Instant slash commands, multi-chain custodial vaults, and zero-gas social tipping for your entire Discord server.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <a href="https://discord.com" target="_blank" class="btn btn-primary" style="padding: 14px 32px; font-size: 16px;">
+                <span>Add BitForge to Discord</span>
+                <span>⚡</span>
+              </a>
+              <a href="terms.html" class="btn btn-glass" style="padding: 14px 28px;">
+                <span>View Terms of Service</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Col 1: Brand -->
+          <div class="footer-col">
+            <a href="index.html" class="brand-wrapper" style="margin-bottom: 16px;">
+              <img src="assets/img/logo.png" alt="BitForge Logo" class="brand-logo-img" />
+              <span class="brand-name font-orbitron">BIT<span>FORGE</span></span>
+            </a>
+            <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; max-width: 300px;">
+              Production Multi-Chain Discord Crypto Tip & Custodial Vault Engine. Engineered with authenticated AES-256 encryption and zero-gas off-chain settlements.
+            </p>
+          </div>
+
+          <!-- Col 2: Navigation -->
+          <div class="footer-col">
+            <h4 class="font-orbitron">Platform</h4>
+            <ul class="footer-links">
+              <li><a href="#simulator" class="footer-link">Live Simulator</a></li>
+              <li><a href="#chains" class="footer-link">Supported Rails</a></li>
+              <li><a href="#calculator" class="footer-link">Gas Calculator</a></li>
+              <li><a href="#commands" class="footer-link">Command Arsenal</a></li>
+              <li><a href="#architecture" class="footer-link">Security Specs</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Legal & Compliance -->
+          <div class="footer-col">
+            <h4 class="font-orbitron">Legal & Policies</h4>
+            <ul class="footer-links">
+              <li><a href="terms.html" class="footer-link">Terms of Service (ToS)</a></li>
+              <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+              <li><a href="terms.html#section-3" class="footer-link">Custodial Model</a></li>
+              <li><a href="privacy.html#section-3" class="footer-link">Data Security</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Community -->
+          <div class="footer-col">
+            <h4 class="font-orbitron">Community</h4>
+            <ul class="footer-links">
+              <li><a href="https://discord.com" target="_blank" class="footer-link">Add to Discord</a></li>
+              <li><a href="#faq" class="footer-link">FAQ & Help</a></li>
+              <li><span style="color: var(--neon-green); font-family: var(--font-mono); font-size: 12px;">● System Status: Optimal</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; 2026 BitForge Development Team. All rights reserved.</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--neon-green);">Strict Zero-Loss Protected • v2.4</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/three-vault.js"></script>
+  <script src="js/simulator.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
