@@ -419,10 +419,10 @@ h1, h2, h3, h4, h5, h6 {
   position: sticky;
   top: 0;
   z-index: 200;
-  padding: 16px 0;
+  padding: 14px 0;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  background: rgba(7, 10, 14, 0.85);
+  background: rgba(7, 10, 14, 0.88);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
@@ -431,27 +431,30 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .brand-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 16px;
 }
 
 .brand-logo-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   border: 1px solid var(--border-glow);
-  box-shadow: 0 0 16px rgba(0, 230, 118, 0.25);
+  box-shadow: 0 0 14px rgba(0, 230, 118, 0.25);
   object-fit: cover;
 }
 
 .brand-name {
   font-family: var(--font-orbitron);
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 900;
   letter-spacing: -0.01em;
   color: #ffffff;
@@ -465,17 +468,20 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
   list-style: none;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.15s ease;
   position: relative;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -497,6 +503,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .hud-tool-btn {
