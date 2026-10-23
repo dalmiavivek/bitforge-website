@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>BitForge — Terms of Service</title>
   
-  <meta name="description" content="Official Terms of Service for BitForge, the multi-chain Discord crypto custodial wallet and social tipping bot." />
+  <meta name="description" content="Terms of Service for BitForge, the multi-chain Discord crypto custodial wallet and social tipping bot." />
   <meta name="theme-color" content="#00e676" />
   
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
@@ -20,97 +20,151 @@
   <link rel="stylesheet" href="css/components.css" />
 
   <style>
-    .legal-content {
-      padding: 60px 0 100px;
-      max-width: 900px;
-      margin: 0 auto;
+    .legal-hero {
+      padding: 7rem 0 3rem;
+      position: relative;
     }
-    .legal-header {
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
+    .legal-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
     }
-    .legal-meta {
+    .legal-hero-panel {
+      background: linear-gradient(155deg, rgba(20, 28, 38, 0.95), rgba(11, 16, 22, 0.98));
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 3rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
       display: flex;
-      gap: 20px;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 13px;
-      margin-top: 12px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .legal-side-panel {
+      background: linear-gradient(180deg, rgba(0, 230, 118, 0.08) 0%, rgba(11, 16, 22, 0.95) 100%);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+      border-radius: var(--r-xl);
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .legal-chip-row {
+      display: flex;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
-    .legal-body h2 {
-      font-family: var(--font-orbitron);
-      font-size: 22px;
-      color: #ffffff;
-      margin: 40px 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .legal-body h2::before {
-      content: '//';
-      color: var(--neon-green);
+    .legal-chip {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      background: rgba(0, 230, 118, 0.08);
+      font-size: 11px;
       font-family: var(--font-mono);
+      color: #ffffff;
+      letter-spacing: 0.04em;
     }
-    .legal-body p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 16px;
+    .legal-sections-wrap {
+      padding: 20px 0 80px;
     }
-    .legal-body ul, .legal-body ol {
-      margin-left: 24px;
-      margin-bottom: 20px;
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.8;
+    .legal-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
-    .legal-body li {
-      margin-bottom: 8px;
-    }
-    .legal-callout {
-      background: rgba(0, 230, 118, 0.05);
-      border-left: 4px solid var(--neon-green);
-      padding: 20px;
-      border-radius: 4px 10px 10px 4px;
-      margin: 24px 0;
-      color: var(--text);
-    }
-    .legal-callout.warning {
-      background: rgba(255, 23, 68, 0.05);
-      border-left-color: var(--neon-crimson);
-    }
-    .toc-card {
+    .legal-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      padding: 24px;
-      margin-bottom: 40px;
+      border-radius: var(--r-lg);
+      padding: 2rem 2.2rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
-    .toc-list {
-      list-style: none;
-      margin-left: 0 !important;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+    .legal-card:hover {
+      border-color: rgba(0, 230, 118, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 230, 118, 0.08);
     }
-    .toc-list a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.15s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .toc-list a:hover {
+    .legal-num-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
       color: var(--neon-green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
     }
-    @media (max-width: 640px) {
-      .toc-list {
+    .legal-card-title {
+      font-family: var(--font-orbitron);
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .legal-takeaway {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--neon-green);
+      margin-bottom: 16px;
+      font-family: var(--font-sans);
+    }
+    .legal-text {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+    }
+    .legal-text p {
+      margin-bottom: 12px;
+    }
+    .legal-text ul, .legal-text ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+    .legal-text li {
+      margin-bottom: 6px;
+    }
+    .fee-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13.5px;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: var(--r-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .fee-table th {
+      background: rgba(0, 230, 118, 0.12);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      text-align: left;
+      padding: 10px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+    }
+    .fee-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+    .fee-table tr:last-child td {
+      border-bottom: none;
+    }
+    .fee-free {
+      color: var(--neon-green);
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+    @media (max-width: 900px) {
+      .legal-hero-grid {
         grid-template-columns: 1fr;
+      }
+      .legal-hero-panel {
+        padding: 2rem;
       }
     }
   </style>
@@ -135,16 +189,17 @@
         </a>
 
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">← Return to Home</a></li>
+          <li><a href="index.html" class="nav-link">← Home</a></li>
           <li><a href="index.html#simulator" class="nav-link">Simulator</a></li>
+          <li><a href="index.html#chains" class="nav-link">Rails</a></li>
           <li><a href="index.html#commands" class="nav-link">Commands</a></li>
-          <li><a href="terms.html" class="nav-link active">Terms of Service</a></li>
-          <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="terms.html" class="nav-link active">ToS</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
         </ul>
 
         <div class="nav-actions">
           <a href="https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-sm">
-            <span>Invite BitForge</span>
+            <span>Add BitForge</span>
             <span class="font-mono">→</span>
           </a>
         </div>
@@ -152,136 +207,231 @@
     </header>
 
     <main class="container">
-      <article class="legal-content">
-        <div class="legal-header">
-          <div class="cyber-badge" style="margin-bottom: 12px;">
-            <span class="pulse-dot"></span>
-            <span>Legal Compliance & Agreement</span>
+      <!-- Legal Hero Split Card -->
+      <section class="legal-hero">
+        <div class="legal-hero-grid">
+          <!-- Main Left Panel -->
+          <div class="legal-hero-panel">
+            <div>
+              <div class="cyber-badge" style="margin-bottom: 1rem;">
+                <span class="pulse-dot"></span>
+                <span>BitForge Legal & Policy</span>
+              </div>
+              <h1 class="font-orbitron" style="font-size: clamp(2rem, 3.8vw, 3.2rem); margin-bottom: 0.8rem;">Terms of Service</h1>
+              <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; max-width: 60ch;">
+                These Terms govern your use of BitForge™, the Discord multi-chain crypto wallet and social tipping bot. If you do not agree, stop using the Bot immediately.
+              </p>
+            </div>
+
+            <div class="legal-chip-row">
+              <span class="legal-chip">Last updated: October 2026</span>
+              <span class="legal-chip">Applies to all servers</span>
+              <span class="legal-chip" style="color: var(--neon-green)">5 Multi-Chain Rails</span>
+              <span class="legal-chip">Zero-Loss Protected</span>
+            </div>
           </div>
-          <h1 class="font-orbitron" style="font-size: 38px; margin-bottom: 8px;">BitForge Terms of Service</h1>
-          <div class="legal-meta">
-            <span>Effective Date: October 22, 2026</span>
-            <span>•</span>
-            <span>Operated by: BitForge Development Team & Hamdard</span>
-            <span>•</span>
-            <span style="color: var(--neon-green);">Status: Active</span>
+
+          <!-- Side Summary Card -->
+          <div class="legal-side-panel">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--neon-green); letter-spacing: 0.12em;">Summary</span>
+              <h3 class="font-orbitron" style="font-size: 18px; margin: 8px 0 10px; color: #ffffff;">Responsible Use & Rules</h3>
+              <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.6;">
+                BitForge provides real on-chain blockchain deposits and withdrawals, instant zero-gas internal tipping between members, and AES-256 encrypted custodial vaults.
+              </p>
+            </div>
+            <div>
+              <a href="#contact" style="display: inline-flex; align-items: center; gap: 6px; color: #ffffff; text-decoration: none; font-size: 13.5px; font-weight: 600; border-bottom: 1px solid var(--neon-green); padding-bottom: 2px;">
+                <span>Jump to contact & support</span>
+                <span style="color: var(--neon-green)">→</span>
+              </a>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Table of Contents -->
-        <div class="toc-card">
-          <h3 class="font-orbitron" style="font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--neon-green);">Table of Contents</h3>
-          <ul class="toc-list">
-            <li><a href="#section-1">1. Eligibility & Acceptance</a></li>
-            <li><a href="#section-2">2. Description of Services</a></li>
-            <li><a href="#section-3">3. Custodial Model & Security</a></li>
-            <li><a href="#section-4">4. Deposits & Minimums</a></li>
-            <li><a href="#section-5">5. Withdrawals & Network Fees</a></li>
-            <li><a href="#section-6">6. Social Tipping Irrevocability</a></li>
-            <li><a href="#section-7">7. Prohibited Activities</a></li>
-            <li><a href="#section-8">8. Service Availability</a></li>
-            <li><a href="#section-9">9. Limitation of Liability</a></li>
-            <li><a href="#section-10">10. Modifications & Termination</a></li>
-            <li><a href="#section-11">11. Contact & Support</a></li>
-          </ul>
-        </div>
-
-        <div class="legal-body">
-          <p>
-            Welcome to <strong>BitForge</strong> ("the Bot", "we", "our", or "us"). BitForge is a multi-chain cryptocurrency custodial wallet and social tipping bot designed for Discord communities. By adding, accessing, or interacting with BitForge via Discord slash commands, prefix commands (<code class="font-mono">$</code>), buttons, or direct messages, you ("User", "you") agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use BitForge.
-          </p>
-
-          <h2 id="section-1">1. Eligibility & Acceptance</h2>
-          <ol>
-            <li><strong>Age Requirement:</strong> You must be at least 18 years of age (or the legal age of majority in your jurisdiction) to use cryptocurrency transaction features in BitForge. You must also satisfy Discord's minimum Terms of Service age requirement.</li>
-            <li><strong>Jurisdiction Compliance:</strong> You are solely responsible for ensuring that your use of BitForge complies with all applicable local, national, and international laws, regulations, and tax obligations regarding digital assets and cryptocurrencies.</li>
-            <li><strong>Discord ToS:</strong> Your use of BitForge is subject to compliance with the <a href="https://discord.com/terms" target="_blank" style="color: var(--neon-green)">Discord Terms of Service</a> and Community Guidelines.</li>
-          </ol>
-
-          <h2 id="section-2">2. Description of Services</h2>
-          <p>
-            BitForge provides an integrated, non-interest-bearing custodial wallet utility within Discord that enables users to:
-          </p>
-          <ul>
-            <li>Generate unique, permanent cryptographic deposit addresses for supported cryptocurrencies (<strong>USDT</strong> on Polygon, <strong>SOL</strong> on Solana, <strong>ETH</strong> on Ethereum, <strong>BTC</strong> on Bitcoin, and <strong>LTC</strong> on Litecoin).</li>
-            <li>Receive on-chain crypto deposits credited to an internal, off-chain accounting ledger.</li>
-            <li>Send instantaneous, zero-gas social tips to other Discord users.</li>
-            <li>Request on-chain withdrawals to external third-party blockchain wallets.</li>
-            <li>View real-time cryptocurrency market prices and portfolio metrics.</li>
-          </ul>
-
-          <h2 id="section-3">3. Custodial Wallet & Account Security</h2>
-          <div class="legal-callout">
-            <strong>Custodial Architecture Notice:</strong> BitForge manages cryptographic keypairs on behalf of users to allow instantaneous, zero-gas tipping within Discord communities. Balances displayed in <code class="font-mono">/balance</code> represent off-chain database ledger credits.
+      <!-- Terms Sections Grid -->
+      <section class="legal-sections-wrap">
+        <div class="legal-grid">
+          <!-- 1. Acceptance of Terms -->
+          <div class="legal-card" id="section-1">
+            <span class="legal-num-badge">01. Acceptance of Terms</span>
+            <h2 class="legal-card-title">Using the Bot means you accept these terms</h2>
+            <div class="legal-takeaway">By interacting with BitForge, you enter into a binding agreement.</div>
+            <div class="legal-text">
+              <p>
+                By using BitForge™ (“the Bot”, “we”, “our”), including adding it to your server, executing slash commands (<code class="font-mono">/</code>), prefix commands (<code class="font-mono">$</code>), interacting with buttons, or transacting in direct messages, you agree to these Terms of Service. These Terms apply to all users across all Discord servers where BitForge operates.
+              </p>
+            </div>
           </div>
-          <ol>
-            <li><strong>Custodial Model:</strong> When you deposit funds into your BitForge deposit address, the underlying assets are held in custodial vault wallets managed by BitForge infrastructure.</li>
-            <li><strong>Key Security:</strong> BitForge encrypts all generated wallet private keys at rest using industry-standard <strong>AES-256-GCM / Fernet authenticated encryption</strong>. Decryption occurs exclusively in volatile server memory when executing authorized transactions.</li>
-            <li><strong>Discord Account Responsibility:</strong> You are solely responsible for securing your Discord account. Any transaction initiated through your authenticated Discord ID (including unauthorized transactions resulting from account compromise, SIM swapping, or phishing) will be deemed authorized by you.</li>
-          </ol>
 
-          <h2 id="section-4">4. Deposits & Minimums</h2>
-          <ol>
-            <li><strong>Supported Networks & Tokens:</strong> You must only send supported assets on their designated networks:
+          <!-- 2. Eligibility (NO 18+ RESTRICTION) -->
+          <div class="legal-card" id="section-2">
+            <span class="legal-num-badge">02. Eligibility</span>
+            <h2 class="legal-card-title">User Eligibility Requirements</h2>
+            <div class="legal-takeaway">Open to all eligible Discord members in good standing.</div>
+            <div class="legal-text">
+              <p>To use BitForge and its features, you must:</p>
               <ul>
-                <li><strong>USDT:</strong> Polygon PoS (ERC-20 with automated POL gas sponsorship)</li>
-                <li><strong>SOL:</strong> Native Solana Network (SPL)</li>
-                <li><strong>ETH:</strong> Ethereum Mainnet (Native ERC-20)</li>
-                <li><strong>BTC:</strong> Bitcoin Mainnet (SegWit / Native P2PKH)</li>
-                <li><strong>LTC:</strong> Litecoin Mainnet (Native P2PKH)</li>
+                <li>Have a valid Discord account in good standing.</li>
+                <li>Satisfy Discord's minimum age requirements (at least 13 years of age, or the legal minimum age required in your country to use Discord).</li>
+                <li>Comply with all local, state, and national laws, regulations, and tax obligations regarding digital assets in your jurisdiction.</li>
+                <li>Not be located in any country or territory where cryptocurrency transactions or digital asset management are legally prohibited.</li>
+                <li>Not be listed on any applicable international or government sanctions list.</li>
               </ul>
-            </li>
-            <li><strong>Unsupported Tokens:</strong> Sending unsupported tokens, using wrong networks, or sending below minimum network dust thresholds may result in permanent loss of funds. BitForge cannot recover incorrectly routed deposits.</li>
-            <li><strong>Deposit Detection:</strong> An autonomous background poller queries RPC nodes every 45 seconds to scan for deposits. Blockchain network congestion may delay confirmation times.</li>
-          </ol>
-
-          <h2 id="section-5">5. Withdrawals & Network Fees</h2>
-          <ol>
-            <li><strong>Dynamic Withdrawal Fees:</strong> All external on-chain withdrawals incur a network processing fee covering blockchain miners/validators gas and vault maintenance. Fees are clearly displayed before confirming a withdrawal.</li>
-            <li><strong>Address Accuracy:</strong> Blockchain transactions are irreversible. If you provide an incorrect destination address via <code class="font-mono">/withdraw</code>, your funds cannot be recovered.</li>
-            <li><strong>Zero-Loss Withdrawal Guarantee:</strong> Off-chain balances are never deducted on node timeouts, invalid destination formats, or unconfirmed broadcasts. Debits occur only upon valid on-chain broadcast hash generation.</li>
-          </ol>
-
-          <h2 id="section-6">6. Social Tipping & Irrevocability</h2>
-          <div class="legal-callout warning">
-            <strong>Irrevocability Notice:</strong> All tips executed via <code class="font-mono">/tip</code> or <code class="font-mono">$tip</code> are transferred instantly between internal off-chain ledger accounts. All tips are final, irrevocable, and non-refundable. BitForge staff cannot reverse tips sent to the wrong recipient.
+            </div>
           </div>
 
-          <h2 id="section-7">7. Prohibited Activities</h2>
-          <p>You agree not to use BitForge for:</p>
-          <ul>
-            <li>Money laundering, terrorism financing, or sanctions evasion.</li>
-            <li>Operating illegal gambling, pyramid, Ponzi, or fraudulent operations.</li>
-            <li>Exploiting bugs, glitches, race conditions, or rate limits in BitForge or Discord.</li>
-            <li>Using automated self-bots or macros to manipulate tipping or rain commands.</li>
-            <li>Sending abusive or extortionate tips to harass community members.</li>
-          </ul>
+          <!-- 3. Wallets, Vaults & Funds -->
+          <div class="legal-card" id="section-3">
+            <span class="legal-num-badge">03. Wallets & Funds</span>
+            <h2 class="legal-card-title">Deposits are tracked, tips stay internal, withdrawals are on-chain</h2>
+            <div class="legal-takeaway">Custodial vault architecture engineered for zero-gas community micro-tips.</div>
+            <div class="legal-text">
+              <ul>
+                <li><strong>HD & EC Derivation:</strong> Each user receives unique, permanent cryptographic deposit addresses for supported chains: <strong>USDT (Polygon PoS)</strong>, <strong>SOL (Solana SPL)</strong>, <strong>ETH (Ethereum)</strong>, <strong>BTC (Bitcoin SegWit)</strong>, and <strong>LTC (Litecoin)</strong>.</li>
+                <li><strong>Encryption at Rest:</strong> All generated custodial keys are protected under bank-grade authenticated <strong>Fernet AES-256</strong> encryption at rest. Keys are never exposed in Discord channels or DMs.</li>
+                <li><strong>Instant Social Tips:</strong> All tips executed via <code class="font-mono">/tip</code> or <code class="font-mono">$tip</code> are internal database ledger transfers settled in sub-50ms with <strong>zero blockchain gas fees</strong>.</li>
+                <li><strong>On-Chain Withdrawals:</strong> External withdrawals via <code class="font-mono">/withdraw</code> are genuine blockchain transactions broadcasted to public nodes. Once broadcasted, blockchain transactions are irreversible.</li>
+                <li><strong>Address Accuracy:</strong> You are strictly responsible for verifying the accuracy of external withdrawal addresses. We cannot recover funds sent to an incorrect address.</li>
+                <li><strong>Zero-Loss Guarantee:</strong> Off-chain balances are never deducted if an on-chain transaction fails to broadcast or encounters an RPC network error.</li>
+              </ul>
+            </div>
+          </div>
 
-          <h2 id="section-8">8. Service Availability & Maintenance</h2>
-          <p>
-            BitForge is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis. Service interruptions may occur during blockchain hard forks, node provider outages, or scheduled upgrades.
-          </p>
+          <!-- 4. Fees -->
+          <div class="legal-card" id="section-4">
+            <span class="legal-num-badge">04. Fees</span>
+            <h2 class="legal-card-title">Transparent & Predictable Fee Structure</h2>
+            <div class="legal-takeaway">Free social tipping inside Discord. Zero hidden fees.</div>
+            <div class="legal-text">
+              <table class="fee-table">
+                <thead>
+                  <tr>
+                    <th>Action</th>
+                    <th>Fee</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Social Tip (/tip)</strong></td>
+                    <td class="fee-free">$0.00 (Zero Gas)</td>
+                    <td>Instant off-chain internal ledger settlement</td>
+                  </tr>
+                  <tr>
+                    <td><strong>On-Chain Deposit (/deposit)</strong></td>
+                    <td class="fee-free">Free ($0.00)</td>
+                    <td>Automatic 45s poller scanning & POL gas sponsoring on Polygon</td>
+                  </tr>
+                  <tr>
+                    <td><strong>On-Chain Withdrawal (/withdraw)</strong></td>
+                    <td style="color:#ffffff; font-family:var(--font-mono)">Network Gas Only</td>
+                    <td>Standard blockchain miner/validator gas deducted from withdrawal</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Network withdrawal fees fluctuate dynamically with underlying blockchain gas prices. The exact fee is clearly previewed before you confirm any withdrawal.</p>
+            </div>
+          </div>
 
-          <h2 id="section-9">9. Limitation of Liability</h2>
-          <p>
-            To the maximum extent permitted by applicable law, BitForge, its developers, operators, and Hamdard shall not be liable for any direct, indirect, incidental, or consequential damages resulting from market volatility, blockchain reorganizations, or unauthorized access to your Discord account.
-          </p>
+          <!-- 5. Acceptable Use -->
+          <div class="legal-card" id="section-5">
+            <span class="legal-num-badge">05. Acceptable Use</span>
+            <h2 class="legal-card-title">Do not abuse the bot or its users</h2>
+            <div class="legal-takeaway">Violations result in permanent blacklisting from BitForge.</div>
+            <div class="legal-text">
+              <p>You agree not to use BitForge for:</p>
+              <ul>
+                <li>Money laundering, terrorism financing, or evading financial sanctions.</li>
+                <li>Operating illegal gambling, pyramid schemes, Ponzi operations, or scams.</li>
+                <li>Exploiting software bugs, race conditions, rate limits, or smart contract flaws.</li>
+                <li>Attempting unauthorized access to other users' accounts, balances, or wallets.</li>
+                <li>Using automated self-bots, spam macros, or attack scripts to overwhelm bot infrastructure.</li>
+                <li>Any activity that violates the <a href="https://discord.com/terms" target="_blank" style="color:var(--neon-green)">Discord Terms of Service</a> or Community Guidelines.</li>
+              </ul>
+              <p>Any violation results in immediate account suspension and blacklisting from all BitForge services.</p>
+            </div>
+          </div>
 
-          <h2 id="section-10">10. Modifications & Termination</h2>
-          <p>
-            We reserve the right to revise these Terms at any time. Continued use of BitForge after revisions constitutes acceptance. We reserve the right to terminate access to any user or server violating these Terms.
-          </p>
+          <!-- 6. Risks & Disclaimers -->
+          <div class="legal-card" id="section-6">
+            <span class="legal-num-badge">06. Risks & Disclaimer</span>
+            <h2 class="legal-card-title">Crypto carries risk and blockchain transactions cannot be reversed</h2>
+            <div class="legal-takeaway">Automated utility bot — not a banking or fiduciary institution.</div>
+            <div class="legal-text">
+              <ul>
+                <li><strong>Market Volatility:</strong> Cryptocurrency values fluctuate unpredictably. BitForge is not responsible for market price changes or token depegging.</li>
+                <li><strong>Not Financial Advice:</strong> BitForge provides custodial wallet and tipping software tools. We do not offer financial, investment, or legal advice.</li>
+                <li><strong>Irreversible Transfers:</strong> Confirmed on-chain blockchain broadcasts are mathematically irreversible.</li>
+                <li><strong>Platform Outages:</strong> We are not liable for downtime caused by public blockchain hard forks, RPC node provider outages, or Discord API service disruptions.</li>
+              </ul>
+            </div>
+          </div>
 
-          <h2 id="section-11">11. Contact & Support</h2>
-          <p>
-            For support or legal inquiries regarding these Terms of Service:
-          </p>
-          <ul>
-            <li><strong>Discord Bot Command:</strong> Run <code class="font-mono">/help</code> or <code class="font-mono">$help</code></li>
-            <li><strong>Lead Developer & Administrator:</strong> Contact Hamdard / Master Admin (<code class="font-mono">ID: 1201968157464739920</code>)</li>
-          </ul>
+          <!-- 7. Security Responsibilities -->
+          <div class="legal-card" id="section-7">
+            <span class="legal-num-badge">07. Security Responsibilities</span>
+            <h2 class="legal-card-title">You are responsible for securing your Discord account</h2>
+            <div class="legal-takeaway">Maintain two-factor authentication (2FA) on your Discord account.</div>
+            <div class="legal-text">
+              <ul>
+                <li>Enable Discord Two-Factor Authentication (2FA) and maintain password hygiene. Any action taken by your authenticated Discord User ID is deemed authorized by you.</li>
+                <li>Never share private keys, seeds, or account tokens. BitForge staff will never ask for your private passwords.</li>
+                <li>Report bugs, glitches, or vulnerabilities immediately to our official support team.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 8. Service Availability & Termination -->
+          <div class="legal-card" id="section-8">
+            <span class="legal-num-badge">08. Termination & Sweeps</span>
+            <h2 class="legal-card-title">Service availability, maintenance, and safe withdrawal windows</h2>
+            <div class="legal-takeaway">30-day notice guarantee in the event of permanent retirement.</div>
+            <div class="legal-text">
+              <p>
+                We reserve the right to temporarily pause bot operations for scheduled upgrades or security patches. In the unlikely event of a permanent shutdown of BitForge, users will be provided a <strong>30-day notice window</strong> to withdraw all custodial cryptocurrency balances to external wallets.
+              </p>
+            </div>
+          </div>
+
+          <!-- 9. Modifications -->
+          <div class="legal-card" id="section-9">
+            <span class="legal-num-badge">09. Modifications to Terms</span>
+            <h2 class="legal-card-title">Updates and Revisions</h2>
+            <div class="legal-takeaway">Continued interaction constitutes acceptance of updated terms.</div>
+            <div class="legal-text">
+              <p>
+                We may revise these Terms of Service periodically. Material updates will be announced through the bot's <code class="font-mono">/help</code> command or our official community server. Your continued use of BitForge following any revision signifies your agreement to the updated Terms.
+              </p>
+            </div>
+          </div>
+
+          <!-- 10. Contact & Support -->
+          <div class="legal-card" id="contact">
+            <span class="legal-num-badge">10. Contact & Support</span>
+            <h2 class="legal-card-title">Reach the BitForge Team</h2>
+            <div class="legal-takeaway">Support, policy questions, and dispute resolution.</div>
+            <div class="legal-text">
+              <p>For questions regarding these Terms of Service, dispute inquiries, or technical support:</p>
+              <ul>
+                <li><strong>Discord Bot Command:</strong> Run <code class="font-mono">/help</code> or <code class="font-mono">$help</code> inside any server where BitForge is present.</li>
+                <li><strong>Bot Authorization:</strong> <a href="https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands" target="_blank" style="color:var(--neon-green)">Add BitForge to your server →</a></li>
+                <li><strong>Lead Developer & Administrator:</strong> Contact Hamdard / Master Admin (<code class="font-mono">ID: 1201968157464739920</code>).</li>
+              </ul>
+              <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-sm">
+                  <span>Add BitForge to Discord</span>
+                  <span>⚡</span>
+                </a>
+                <a href="index.html" class="btn btn-glass btn-sm">
+                  <span>Back to Home</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </article>
+      </section>
     </main>
 
     <!-- Footer -->

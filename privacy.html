@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>BitForge — Privacy Policy</title>
   
-  <meta name="description" content="Official Privacy Policy for BitForge, the multi-chain Discord crypto custodial wallet and social tipping bot." />
+  <meta name="description" content="Privacy Policy for BitForge, the multi-chain Discord crypto custodial wallet and social tipping bot." />
   <meta name="theme-color" content="#00e676" />
   
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
@@ -20,98 +20,147 @@
   <link rel="stylesheet" href="css/components.css" />
 
   <style>
-    .legal-content {
-      padding: 60px 0 100px;
-      max-width: 900px;
-      margin: 0 auto;
+    .legal-hero {
+      padding: 7rem 0 3rem;
+      position: relative;
     }
-    .legal-header {
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
+    .legal-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
     }
-    .legal-meta {
+    .legal-hero-panel {
+      background: linear-gradient(155deg, rgba(20, 28, 38, 0.95), rgba(11, 16, 22, 0.98));
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 3rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
       display: flex;
-      gap: 20px;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 13px;
-      margin-top: 12px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .legal-side-panel {
+      background: linear-gradient(180deg, rgba(0, 230, 118, 0.08) 0%, rgba(11, 16, 22, 0.95) 100%);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+      border-radius: var(--r-xl);
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .legal-chip-row {
+      display: flex;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
-    .legal-body h2 {
-      font-family: var(--font-orbitron);
-      font-size: 22px;
-      color: #ffffff;
-      margin: 40px 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .legal-body h2::before {
-      content: '//';
-      color: var(--neon-green);
+    .legal-chip {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      background: rgba(0, 230, 118, 0.08);
+      font-size: 11px;
       font-family: var(--font-mono);
-    }
-    .legal-body h3 {
-      font-family: var(--font-orbitron);
-      font-size: 16px;
       color: #ffffff;
-      margin: 24px 0 12px;
+      letter-spacing: 0.04em;
     }
-    .legal-body p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 16px;
+    .legal-sections-wrap {
+      padding: 20px 0 80px;
     }
-    .legal-body ul, .legal-body ol {
-      margin-left: 24px;
-      margin-bottom: 20px;
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.8;
+    .legal-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
-    .legal-body li {
-      margin-bottom: 8px;
-    }
-    .legal-callout {
-      background: rgba(0, 230, 118, 0.05);
-      border-left: 4px solid var(--neon-green);
-      padding: 20px;
-      border-radius: 4px 10px 10px 4px;
-      margin: 24px 0;
-      color: var(--text);
-    }
-    .toc-card {
+    .legal-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      padding: 24px;
-      margin-bottom: 40px;
+      border-radius: var(--r-lg);
+      padding: 2rem 2.2rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
-    .toc-list {
-      list-style: none;
-      margin-left: 0 !important;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+    .legal-card:hover {
+      border-color: rgba(0, 230, 118, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 230, 118, 0.08);
     }
-    .toc-list a {
-      color: var(--text-muted);
-      text-decoration: none;
+    .legal-num-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--neon-green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .legal-card-title {
+      font-family: var(--font-orbitron);
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .legal-takeaway {
       font-size: 14px;
-      transition: color 0.15s ease;
+      font-weight: 600;
+      color: var(--neon-green);
+      margin-bottom: 16px;
+      font-family: var(--font-sans);
+    }
+    .legal-text {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+    }
+    .legal-text p {
+      margin-bottom: 12px;
+    }
+    .legal-text ul, .legal-text ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+    .legal-text li {
+      margin-bottom: 6px;
+    }
+    .data-box-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .data-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 18px;
+    }
+    .data-box-title {
+      font-family: var(--font-orbitron);
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
-    .toc-list a:hover {
+    .data-box-title.collected {
       color: var(--neon-green);
     }
-    @media (max-width: 640px) {
-      .toc-list {
+    .data-box-title.not-collected {
+      color: var(--neon-crimson);
+    }
+    @media (max-width: 900px) {
+      .legal-hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .legal-hero-panel {
+        padding: 2rem;
+      }
+      .data-box-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -137,16 +186,17 @@
         </a>
 
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">← Return to Home</a></li>
+          <li><a href="index.html" class="nav-link">← Home</a></li>
           <li><a href="index.html#simulator" class="nav-link">Simulator</a></li>
+          <li><a href="index.html#chains" class="nav-link">Rails</a></li>
           <li><a href="index.html#commands" class="nav-link">Commands</a></li>
-          <li><a href="terms.html" class="nav-link">Terms of Service</a></li>
-          <li><a href="privacy.html" class="nav-link active">Privacy Policy</a></li>
+          <li><a href="terms.html" class="nav-link">ToS</a></li>
+          <li><a href="privacy.html" class="nav-link active">Privacy</a></li>
         </ul>
 
         <div class="nav-actions">
           <a href="https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-sm">
-            <span>Invite BitForge</span>
+            <span>Add BitForge</span>
             <span class="font-mono">→</span>
           </a>
         </div>
@@ -154,136 +204,208 @@
     </header>
 
     <main class="container">
-      <article class="legal-content">
-        <div class="legal-header">
-          <div class="cyber-badge" style="margin-bottom: 12px;">
-            <span class="pulse-dot"></span>
-            <span>Data Protection & Privacy</span>
+      <!-- Legal Hero Split Card -->
+      <section class="legal-hero">
+        <div class="legal-hero-grid">
+          <!-- Main Left Panel -->
+          <div class="legal-hero-panel">
+            <div>
+              <div class="cyber-badge" style="margin-bottom: 1rem;">
+                <span class="pulse-dot"></span>
+                <span>BitForge Data Protection</span>
+              </div>
+              <h1 class="font-orbitron" style="font-size: clamp(2rem, 3.8vw, 3.2rem); margin-bottom: 0.8rem;">Privacy Policy</h1>
+              <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; max-width: 60ch;">
+                This page explains what BitForge collects, how it is stored and used, and the privacy rights available to users of the bot.
+              </p>
+            </div>
+
+            <div class="legal-chip-row">
+              <span class="legal-chip">Last updated: October 2026</span>
+              <span class="legal-chip">Data Minimization Principle</span>
+              <span class="legal-chip" style="color: var(--neon-green)">AES-256 Encrypted</span>
+              <span class="legal-chip">Zero Tracking</span>
+            </div>
           </div>
-          <h1 class="font-orbitron" style="font-size: 38px; margin-bottom: 8px;">BitForge Privacy Policy</h1>
-          <div class="legal-meta">
-            <span>Effective Date: October 22, 2026</span>
-            <span>•</span>
-            <span>Operated by: BitForge Development Team & Hamdard</span>
-            <span>•</span>
-            <span style="color: var(--neon-green);">Standard: Data Minimization</span>
+
+          <!-- Side Summary Card -->
+          <div class="legal-side-panel">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--neon-green); letter-spacing: 0.12em;">Summary</span>
+              <h3 class="font-orbitron" style="font-size: 18px; margin: 8px 0 10px; color: #ffffff;">No Tracking. No Data Selling.</h3>
+              <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.6;">
+                We only store the minimal operational data needed to manage deposit addresses, track balances, and process crypto transactions inside Discord.
+              </p>
+            </div>
+            <div>
+              <a href="#contact" style="display: inline-flex; align-items: center; gap: 6px; color: #ffffff; text-decoration: none; font-size: 13.5px; font-weight: 600; border-bottom: 1px solid var(--neon-green); padding-bottom: 2px;">
+                <span>Read contact & inquiries</span>
+                <span style="color: var(--neon-green)">→</span>
+              </a>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Table of Contents -->
-        <div class="toc-card">
-          <h3 class="font-orbitron" style="font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--neon-green);">Table of Contents</h3>
-          <ul class="toc-list">
-            <li><a href="#section-1">1. Information We Collect</a></li>
-            <li><a href="#section-2">2. How We Use Information</a></li>
-            <li><a href="#section-3">3. Storage & Security Standards</a></li>
-            <li><a href="#section-4">4. Third-Party Integrations</a></li>
-            <li><a href="#section-5">5. Data Retention & User Rights</a></li>
-            <li><a href="#section-6">6. Children's Privacy (COPPA)</a></li>
-            <li><a href="#section-7">7. Changes to Policy</a></li>
-            <li><a href="#section-8">8. Contact & Data Inquiries</a></li>
-          </ul>
-        </div>
+      <!-- Privacy Sections Grid -->
+      <section class="legal-sections-wrap">
+        <div class="legal-grid">
+          <!-- 1. Information We Collect -->
+          <div class="legal-card" id="section-1">
+            <span class="legal-num-badge">01. Information We Collect</span>
+            <h2 class="legal-card-title">Only the data required to run the bot</h2>
+            <div class="legal-takeaway">We collect operational data strictly tied to your Discord account and blockchain activity.</div>
+            <div class="legal-text">
+              <p>When you interact with BitForge, we adhere to a strict data-minimization principle:</p>
 
-        <div class="legal-body">
-          <p>
-            BitForge ("we", "our", or "the Bot") values and respects your privacy. This Privacy Policy outlines what information we collect, how it is used, how it is safeguarded, and your rights regarding your data when using the BitForge Discord application.
-          </p>
-          <p>
-            By using BitForge, you consent to the collection and handling of information as described in this Privacy Policy.
-          </p>
+              <div class="data-box-grid">
+                <!-- Stored Data -->
+                <div class="data-box">
+                  <div class="data-box-title collected">
+                    <span>✓</span> Stored Data
+                  </div>
+                  <ul style="margin-left: 14px; margin-bottom: 0;">
+                    <li>Discord User ID & Discord Username</li>
+                    <li>Cryptographic deposit addresses generated for you across supported chains (USDT, SOL, ETH, BTC, LTC)</li>
+                    <li>Internal off-chain balance ledger</li>
+                    <li>Transaction history & receipts (tips, deposits, withdrawals)</li>
+                    <li>Timestamps and transaction hashes</li>
+                  </ul>
+                </div>
 
-          <h2 id="section-1">1. Information We Collect</h2>
-          <div class="legal-callout">
-            <strong>Data-Minimization Principle:</strong> BitForge strictly collects only the minimal data required to process cryptocurrency transactions and maintain accurate custodial ledger balances within Discord.
+                <!-- Not Collected -->
+                <div class="data-box">
+                  <div class="data-box-title not-collected">
+                    <span>✕</span> Data Not Collected
+                  </div>
+                  <ul style="margin-left: 14px; margin-bottom: 0;">
+                    <li>No passwords or credentials</li>
+                    <li>No email addresses or phone numbers</li>
+                    <li>No real names or physical locations</li>
+                    <li>No IP addresses or browser fingerprints</li>
+                    <li>No Discord channel message content (we only process commands matching the prefix or slash format)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <h3>A. Discord Account Identifiers</h3>
-          <ul>
-            <li><strong>Discord User ID:</strong> A unique numeric snowflake ID assigned by Discord (e.g., <code class="font-mono">1201968157464739920</code>). This is required to associate your custodial balance, deposit addresses, and transaction records with your Discord account.</li>
-            <li><strong>Discord Username:</strong> Used solely for visual rendering on receipts, profile embeds, and tipping confirmations.</li>
-            <li><strong>Discord Server (Guild) ID:</strong> Collected only when configuring server-specific preferences (such as custom prefixes).</li>
-          </ul>
-
-          <h3>B. Blockchain & Financial Ledger Data</h3>
-          <ul>
-            <li><strong>Public Wallet Addresses:</strong> Permanent public blockchain addresses generated for deposits across supported networks (Polygon, Solana, Ethereum, Bitcoin, Litecoin).</li>
-            <li><strong>Encrypted Private Keys:</strong> High-entropy cryptographic private keys generated to manage custodial deposits, stored strictly under <strong>Fernet AES-256 authenticated symmetric encryption</strong>.</li>
-            <li><strong>Off-Chain Balance Records:</strong> Internal ledger amounts representing your account credit for each supported currency.</li>
-            <li><strong>Transaction History:</strong> Public on-chain transaction hashes, internal tip logs, amounts, timestamps, and recipient Discord User IDs necessary to maintain accurate accounting.</li>
-          </ul>
-
-          <h3>C. Data We DO NOT Collect</h3>
-          <ul>
-            <li><strong>NO Real Names or Government IDs</strong></li>
-            <li><strong>NO Physical Addresses, Phone Numbers, or Emails</strong></li>
-            <li><strong>NO IP Addresses, Locations, or Browser Fingerprints</strong></li>
-            <li><strong>NO Credit Cards or Banking Credentials</strong></li>
-            <li><strong>NO Discord Message Content</strong> (BitForge processes only commands matching the prefix or slash command schema).</li>
-          </ul>
-
-          <h2 id="section-2">2. How We Use Your Information</h2>
-          <p>We use collected data exclusively for the operational functionality of BitForge:</p>
-          <ol>
-            <li><strong>Wallet Generation:</strong> Deriving unique deposit addresses for your account.</li>
-            <li><strong>Transaction Execution:</strong> Processing incoming deposits, instant off-chain social tips, and external on-chain withdrawals.</li>
-            <li><strong>Ledger Integrity:</strong> Maintaining an immutable accounting record of balances and receipts.</li>
-            <li><strong>Security & Abuse Prevention:</strong> Guarding against double-spending, exploitation, and macro spam.</li>
-            <li><strong>Display & Command Outputs:</strong> Rendering profile stats, balance overviews, and transaction history.</li>
-          </ol>
-          <p>
-            <strong>We NEVER sell, rent, monetize, or share your data with advertisers or third-party marketing brokers.</strong>
-          </p>
-
-          <h2 id="section-3">3. Data Storage & Security Standards</h2>
-          <ul>
-            <li><strong>Cryptographic Encryption:</strong> All custodial private keys are encrypted at rest using AES-256 in CBC mode with HMAC SHA-256 authentication. Decryption occurs exclusively in volatile server memory when executing authorized transactions.</li>
-            <li><strong>Database Isolation:</strong> The database utilizes SQLite with Write-Ahead Logging (WAL) and strict foreign key integrity constraints, protected by filesystem-level access restrictions.</li>
-            <li><strong>Ephemeral Interaction Messaging:</strong> Sensitive outputs (such as address generation and balance details) utilize Discord ephemeral messages visible only to you.</li>
-            <li><strong>No Plaintext Key Exporting:</strong> BitForge never reveals or outputs private keys into public channels or direct messages.</li>
-          </ul>
-
-          <h2 id="section-4">4. Third-Party Services & Integrations</h2>
-          <p>BitForge interacts with the following external services to deliver bot features:</p>
-          <ul>
-            <li><strong>Discord API:</strong> To receive user interactions, slash commands, and deliver messages. Governed by the Discord Privacy Policy.</li>
-            <li><strong>Public Blockchain RPC Nodes:</strong> Public nodes (Alchemy, Infura, Solana RPC, QuickNode, Blockstream, Blockchair) are queried to verify on-chain deposits and broadcast raw signed withdrawal transactions.</li>
-            <li><strong>CoinGecko API:</strong> Read-only price oracle to fetch real-time USD exchange rates without transmitting user identifiers.</li>
-          </ul>
-
-          <h2 id="section-5">5. Data Retention & User Rights</h2>
-          <ol>
-            <li><strong>Retention Period:</strong> We retain your Discord ID and transaction ledger for as long as your account is active on BitForge to preserve accounting audit trails.</li>
-            <li><strong>Right to Access:</strong> You can inspect all data stored about your account at any time by running <code class="font-mono">/balance</code> and <code class="font-mono">/history</code>.</li>
-            <li><strong>Right to Deletion ("Right to be Forgotten"):</strong>
+          <!-- 2. How We Store Your Data -->
+          <div class="legal-card" id="section-2">
+            <span class="legal-num-badge">02. Data Storage & Security</span>
+            <h2 class="legal-card-title">Security is built into the storage layer</h2>
+            <div class="legal-takeaway">Authenticated Fernet AES-256 encryption protects all private keys at rest.</div>
+            <div class="legal-text">
               <ul>
-                <li>You may request complete deletion of your account from BitForge at any time.</li>
-                <li>Before requesting deletion, you should withdraw remaining cryptocurrency balances via <code class="font-mono">/withdraw</code>.</li>
-                <li>Upon verified request, your user record, encrypted private keys, and pending settings will be permanently wiped from our active database. Historical transaction hashes remain permanently on the public blockchain where data is inherently immutable.</li>
+                <li><strong>Encryption at Rest:</strong> All custodial private keys are encrypted using bank-grade AES-256 in CBC mode with HMAC SHA-256 authentication. Decryption occurs strictly in volatile memory during active transaction execution.</li>
+                <li><strong>No Plaintext Key Exporting:</strong> BitForge never displays, transmits, or logs plaintext private keys in Discord channels, DMs, or public web interfaces.</li>
+                <li><strong>Database Isolation:</strong> Data is persisted in a secured SQLite architecture utilizing Write-Ahead Logging (WAL) and strict filesystem-level access boundaries.</li>
+                <li><strong>Ephemeral Privacy:</strong> Sensitive interaction outputs (such as private deposit address generation and balance inquiries) utilize Discord ephemeral messages visible exclusively to you.</li>
               </ul>
-            </li>
-          </ol>
+            </div>
+          </div>
 
-          <h2 id="section-6">6. Children's Privacy (COPPA Compliance)</h2>
-          <p>
-            BitForge is not directed to individuals under the age of 13 (or 16 in certain EEA jurisdictions). We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has used the service, we will promptly delete their associated records.
-          </p>
+          <!-- 3. How We Use Your Data -->
+          <div class="legal-card" id="section-3">
+            <span class="legal-num-badge">03. Usage of Information</span>
+            <h2 class="legal-card-title">To generate wallets, track balances, and process actions</h2>
+            <div class="legal-takeaway">We never sell, rent, monetize, or share your data with advertisers.</div>
+            <div class="legal-text">
+              <p>Your data is used strictly for operational bot functionality:</p>
+              <ul>
+                <li>Generate unique cryptographic deposit addresses for supported assets (USDT, SOL, ETH, BTC, LTC).</li>
+                <li>Maintain an accurate, real-time off-chain ledger of user balances.</li>
+                <li>Process instantaneous zero-gas social tips between Discord members.</li>
+                <li>Execute and broadcast on-chain withdrawals to destination addresses.</li>
+                <li>Display user profile statistics and audit history via <code class="font-mono">/balance</code> and <code class="font-mono">/history</code>.</li>
+              </ul>
+              <p>
+                <strong>No Data Selling:</strong> We do not monetize, rent, or distribute your personal data or transaction history to any third-party marketing companies or brokers.
+              </p>
+            </div>
+          </div>
 
-          <h2 id="section-7">7. Changes to This Privacy Policy</h2>
-          <p>
-            We may update this Privacy Policy periodically. Material updates will be announced via the bot help menu or official support server. Your continued interaction with BitForge following modifications constitutes acceptance of the revised policy.
-          </p>
+          <!-- 4. Third-Party Services -->
+          <div class="legal-card" id="section-4">
+            <span class="legal-num-badge">04. Third-Party Integrations</span>
+            <h2 class="legal-card-title">Minimal data transmission to blockchain infrastructure</h2>
+            <div class="legal-takeaway">We only query external nodes to verify transactions and fetch market prices.</div>
+            <div class="legal-text">
+              <p>BitForge interfaces with the following external technical services:</p>
+              <ul>
+                <li><strong>Discord API:</strong> Delivers bot commands, user interactions, and message dispatching under the Discord Privacy Policy.</li>
+                <li><strong>Blockchain RPC Nodes:</strong> Public nodes (Alchemy, Infura, Solana RPC, litecoinspace.org, btcscan.org) are queried to confirm incoming deposits and broadcast signed withdrawal transactions.</li>
+                <li><strong>CoinGecko API:</strong> Read-only price oracle used to calculate estimated USD values without transmitting any user identifiers.</li>
+              </ul>
+            </div>
+          </div>
 
-          <h2 id="section-8">8. Contact & Data Inquiries</h2>
-          <p>
-            If you have questions, concerns, or deletion requests regarding this Privacy Policy:
-          </p>
-          <ul>
-            <li><strong>Discord Bot Command:</strong> Run <code class="font-mono">/privacy</code> or <code class="font-mono">$privacy</code></li>
-            <li><strong>Lead Administrator:</strong> Contact Hamdard / Master Admin (<code class="font-mono">ID: 1201968157464739920</code>)</li>
-          </ul>
+          <!-- 5. Age Policy & Child Privacy (NO 18+ REQUIREMENT) -->
+          <div class="legal-card" id="section-5">
+            <span class="legal-num-badge">05. Age Policy & Child Privacy</span>
+            <h2 class="legal-card-title">Compliance with Discord Community Standards</h2>
+            <div class="legal-takeaway">Adheres to Discord's minimum platform age requirements.</div>
+            <div class="legal-text">
+              <p>
+                BitForge complies with Discord’s Terms of Service and global data protection regulations. Users must satisfy Discord's minimum platform age requirements (at least 13 years old, or the legal minimum age required in your jurisdiction to use Discord).
+              </p>
+              <p>
+                We do not knowingly collect or maintain personal data from individuals under the minimum Discord age. If we learn that a user under the legal age has accessed the service, we will promptly delete their associated database records.
+              </p>
+            </div>
+          </div>
+
+          <!-- 6. Your Rights & Data Deletion -->
+          <div class="legal-card" id="section-6">
+            <span class="legal-num-badge">06. Your Rights</span>
+            <h2 class="legal-card-title">You can request deletion, export, or balance withdrawal</h2>
+            <div class="legal-takeaway">Right to access, right to be forgotten, and right to self-custody.</div>
+            <div class="legal-text">
+              <ul>
+                <li><strong>Balance Withdrawal:</strong> You may withdraw your entire cryptocurrency balance to an external wallet at any time prior to account deletion using <code class="font-mono">/withdraw</code>.</li>
+                <li><strong>Data Access & Export:</strong> Inspect all stored ledger data, balances, and transaction history at any time using <code class="font-mono">/balance</code> and <code class="font-mono">/history</code>.</li>
+                <li><strong>Data Deletion ("Right to be Forgotten"):</strong> You may request complete erasure of your Discord User ID, encrypted keys, and settings from our active database by contacting support. <em>(Note: Historical blockchain transactions already broadcasted remain immutable on public ledgers.)</em></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 7. Disclaimer & Service Model -->
+          <div class="legal-card" id="section-7">
+            <span class="legal-num-badge">07. Disclaimer</span>
+            <h2 class="legal-card-title">BitForge is an automated utility bot, not a bank</h2>
+            <div class="legal-takeaway">Self-responsibility and cryptocurrency risk awareness.</div>
+            <div class="legal-text">
+              <p>
+                BitForge is a Discord utility and social tipping bot, not a licensed bank or financial depository. We are not liable for funds lost due to incorrect withdrawal addresses provided by users. Because blockchain transactions are irreversible, always double-check destination addresses before confirming withdrawals.
+              </p>
+            </div>
+          </div>
+
+          <!-- 8. Contact & Data Inquiries -->
+          <div class="legal-card" id="contact">
+            <span class="legal-num-badge">08. Contact & Data Inquiries</span>
+            <h2 class="legal-card-title">Reach the BitForge Privacy Team</h2>
+            <div class="legal-takeaway">For privacy inquiries, account deletion requests, or support.</div>
+            <div class="legal-text">
+              <p>For questions or deletion requests regarding this Privacy Policy:</p>
+              <ul>
+                <li><strong>Discord Command:</strong> Run <code class="font-mono">/privacy</code> or <code class="font-mono">$privacy</code> inside Discord.</li>
+                <li><strong>Bot Invite:</strong> <a href="https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands" target="_blank" style="color:var(--neon-green)">Add BitForge to your server →</a></li>
+                <li><strong>Lead Administrator:</strong> Contact Hamdard / Master Admin (<code class="font-mono">ID: 1201968157464739920</code>).</li>
+              </ul>
+              <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://discord.com/oauth2/authorize?client_id=1562395424684244994&permissions=137439071328&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-sm">
+                  <span>Add BitForge to Discord</span>
+                  <span>⚡</span>
+                </a>
+                <a href="index.html" class="btn btn-glass btn-sm">
+                  <span>Back to Home</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </article>
+      </section>
     </main>
 
     <!-- Footer -->
