@@ -148,10 +148,11 @@ body {
 .pre-logo-img {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: 50%;
   border: 1px solid var(--border-glow);
   box-shadow: 0 0 25px rgba(0, 230, 118, 0.35);
   animation: logoPulse 2s infinite ease-in-out;
+  object-fit: cover;
 }
 
 .pre-logo-text {
@@ -446,7 +447,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-logo-img {
   width: 36px;
   height: 36px;
-  border-radius: 9px;
+  border-radius: 50%;
   border: 1px solid var(--border-glow);
   box-shadow: 0 0 14px rgba(0, 230, 118, 0.25);
   object-fit: cover;
